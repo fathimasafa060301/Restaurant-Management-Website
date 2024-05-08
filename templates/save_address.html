@@ -1,0 +1,93 @@
+{% extends 'header.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<style>
+  .ship {
+        max-width: 800px;
+        margin: 20px auto;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(175, 54, 54, 0.1);
+        padding: 30px;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .shipping-details{
+      margin-top: 3px;
+      text-align: center;
+      padding: 5px 5px;
+      width: 100%;
+      margin-bottom: 6px;
+      background-color: #f9f9f9;
+      border-radius: 12px;
+    }
+
+    input[type="text"]  {
+      width: 58%;
+      padding: 24px 7px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      
+    }
+
+    
+    .ship-detail {
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    
+    .changebtn {
+      margin-top: 15px;
+    }
+
+    .address-btn{
+      padding: 5px 5px;
+      border-radius: 10px;
+      color: white;
+      background-color: black;
+      cursor: pointer;
+    }
+
+    .lab {
+        margin: 15px;
+    }
+</style>
+
+<div class="ship">
+  <div class="shipping-details">
+    {% if address %}
+    <p>Your Address:</p>
+    <p>City: {{ address.city }}</p>
+    <p>Zip Code: {{ address.zip_code }}</p>
+    <p>Address: {{ address.address }}</p>
+    <a href="{% url 'edit_address' %}">Edit Address</a>
+    
+    {% else %}
+    <p>No Address Found</p>
+    <p>Please add your shipping address:</p>
+    <form class="ship-detail" method="POST" action="{% url 'save_address' %}">
+        {% csrf_token %}
+        <input type="text" id="city" name="city" placeholder="city" required><br>
+        <input type="text" id="zipcode" name="zipcode" placeholder="zipcode" required><br>
+        <textarea id="address" name="address" rows="4" placeholder="address" required></textarea><br>
+        <div class="changebtn">
+          <button class="address-btn">Save Address</button>
+        </div>
+      </form>
+{% endif %}
+  </div>
+</div>
+
+{% endblock %}
+
+
+<!-- <div id="addressInput" class="address-input">
+  <input type="text" id="newAddress" placeholder="Enter your new address">
+  <button onclick="saveAddress()">Save</button>
+  <button onclick="cancelAddress()">Cancel</button>
+</div> -->

@@ -1,0 +1,154 @@
+{% extends 'header.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .btnforms{
+        display: flex;
+        flex-direction: row;
+        margin: 0 auto;
+    }
+
+    .bttn {
+    width: 120px;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 20px;
+    background-color: rgb(149 152 48);
+    color: rgb(255, 255, 255);
+    padding: 3px 0px;
+    }
+    
+</style>
+<section class="menu">
+    <div class="menucontainer">
+        <h1>Our Menu</h1>
+        <div class="categories">
+            <button onclick="ShowBurger()" class="categorybtn">Burger</button>
+            <button  onclick="ShowPizza()" class="categorybtn">Pizza</button>
+            <button  onclick="ShowKebab()" class="categorybtn">Kebab</button>
+        </div>
+
+        <!-- all items -->
+            <div class="grid-container" id="menu" style="display: grid;">
+                {% for i in menuitems %}
+                <div class="grid-item">
+                    <img class="image" src="{{ i.image.url }}">
+                    <h3>{{ i.itemname }}</h3>
+                    <p>{{ i.itemdescription }}</p>
+                    <p>{{ i.price }}</p>
+                    <div class="btnforms">
+                        <!-- Add any additional fields you need for the form -->
+                        {% if user.is_active == 1 %}
+                        <a  href="{% url 'add_to_checkout' i.id  %}" class="bttn" id="addToCartBtn">Buy Now<i class="fa-solid fa-cart-shopping"></i></a>
+                        <a  href="{% url 'add_to_cart' i.id %}" class="bttn" id="addToCartBtn">Add to Cart<i class="fa-solid fa-cart-shopping"></i></a>
+                        {% else %}
+                        <a  href="{% url 'signup' %}" class="bttn" id="addToCartBtn">Add to Cart<i class="fa-solid fa-cart-shopping"></i></a>
+                        {% endif %}
+                    </div>                   
+                </div>
+                {% endfor %}
+            </div>
+
+
+
+        <!-- burgers -->
+
+        {% if b_count > 0 %}
+            <div class="grid-container" id="burger" style="display: none;">
+                {% for i in burgers %}
+                <div class="grid-item">
+                    <img class="image" src="{{ i.image.url }}">
+                    <h3>{{ i.itemname }}</h3>
+                    <p>{{ i.itemdescription }}</p>
+                    <p>{{ i.price }}</p>
+                    <div class="btnforms">
+                        <form id="buyItem" action="{% url 'add_to_checkout' i.id %}" method="post">
+                            {% csrf_token %}
+                            <!-- Add any additional fields you need for the form -->
+                            <button class="bttn" id="addToCartBtn">Buy Now<i class="fa-solid fa-cart-shopping"></i></button>
+                        </form>
+                        <form id="addToCartForm" action="{% url 'cart' %}" method="post">
+                            {% csrf_token %}
+                            <!-- Add any additional fields you need for the form -->
+                            <button class="bttn" id="addToCartBtn">Add to Cart<i class="fa-solid fa-cart-shopping"></i></button>
+                        </form>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="grid-container" id="burger">
+                <p>No Items</p>
+            </div>
+        {% endif %}
+
+
+        <!-- pizza -->
+
+        {% if p_count > 0 %}
+            <div class="grid-container" id="pizza" style="display: none;">
+                {% for i in pizza %}
+                <div class="grid-item">
+                    <img class="image" src="{{ i.image.url }}">
+                    <h3>{{ i.itemname }}</h3>
+                    <p>{{ i.itemdescription }}</p>
+                    <p>{{ i.price }}</p>
+                    <div class="btnforms">
+                        <form id="buyItem" action="{% url 'add_to_checkout' i.id %}" method="post">
+                            {% csrf_token %}
+                            <!-- Add any additional fields you need for the form -->
+                            <button class="bttn" id="addToCartBtn">Buy Now<i class="fa-solid fa-cart-shopping"></i></button>
+                        </form>
+                        <form id="addToCartForm" action="{% url 'cart' %}" method="post">
+                            {% csrf_token %}
+                            <!-- Add any additional fields you need for the form -->
+                            <button class="bttn" id="addToCartBtn">Add to Cart<i class="fa-solid fa-cart-shopping"></i></button>
+                        </form>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="grid-container" id="pizza">
+                <p>No Items</p>
+            </div>
+        {% endif %}
+
+
+        <!-- kebab -->
+
+        {% if k_count > 0 %}
+            <div class="grid-container" id="kebab" style="display: none;">
+                {% for i in kebab %}
+                <div class="grid-item">
+                    <img class="image" src="{{ i.image.url }}">
+                    <h3>{{ i.itemname }}</h3>
+                    <p>{{ i.itemdescription }}</p>
+                    <p>{{ i.price }}</p>
+                    <div class="btnforms">
+                        <form id="buyItem" action="{% url 'add_to_checkout' i.id %}" method="post">
+                            {% csrf_token %}
+                            <!-- Add any additional fields you need for the form -->
+                            <button class="bttn" id="addToCartBtn">Buy Now<i class="fa-solid fa-cart-shopping"></i></button>
+                        </form>
+                        <form id="addToCartForm" action="{% url 'cart' %}" method="post">
+                            {% csrf_token %}
+                            <!-- Add any additional fields you need for the form -->
+                            <button class="bttn" id="addToCartBtn">Add to Cart<i class="fa-solid fa-cart-shopping"></i></button>
+                        </form>
+                    </div>
+                </div>
+                {% endfor %}
+           </div>
+        {% else %}
+           <div class="grid-container" id="kebab">
+               <p>No Items</p>
+           </div>
+        {% endif %}
+        
+    </div>
+</section>
+
+{% endblock %}
+

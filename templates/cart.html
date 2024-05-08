@@ -1,0 +1,208 @@
+{% extends 'header.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+
+td{
+    padding: 10px;
+}
+    input[type="number"] {
+    text-align: center;
+    width: 50%;
+    height: 36px;
+}
+
+.qty-input {
+  color: #000;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.qty-input .product-qty,
+.qty-input .qty-count {
+  background: transparent;
+  color: inherit;
+  font-weight: bold;
+  font-size: inherit;
+  border: none;
+  display: inline-block;
+  min-width: 0;
+  height: 2.5rem;
+  line-height: 1;
+}
+.qty-input .product-qty:focus,
+.qty-input .qty-count:focus {
+  outline: none;
+}
+.qty-input .product-qty {
+  width: 50px;
+  min-width: 0;
+  display: inline-block;
+  text-align: center;
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
+}
+.qty-input .product-qty::-webkit-outer-spin-button, .qty-input .product-qty::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+          appearance: none;
+  margin: 0;
+}
+.qty-input .qty-count {
+  padding: 0;
+  cursor: pointer;
+  width: 2.5rem;
+  font-size: 1.25em;
+  text-indent: -100px;
+  overflow: hidden;
+  position: relative;
+}
+.qty-input .qty-count:before, .qty-input .qty-count:after {
+  content: "";
+  height: 2px;
+  width: 10px;
+  position: absolute;
+  display: block;
+  background: #000;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.qty-input .qty-count--minus {
+  border-right: 1px solid #e2e2e2;
+}
+.qty-input .qty-count--add {
+  border-left: 1px solid #e2e2e2;
+}
+.qty-input .qty-count--add:after {
+  transform: rotate(90deg);
+}
+.qty-input .qty-count:disabled {
+  color: #ccc;
+  background: #f2f2f2;
+  cursor: not-allowed;
+  border-color: transparent;
+}
+.qty-input .qty-count:disabled:before, .qty-input .qty-count:disabled:after {
+  background: #ccc;
+}
+
+.qty-input {
+    margin-bottom: 12px;
+    /* font-weight: 100; */
+    font-size: small;
+    color: #000;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.qstyle{
+  display: flex;
+  flex-direction: row;
+}
+
+.qty-count--minus{
+    padding: 5px;
+    margin-right: 5px;
+}
+
+.qty-count--add{
+    padding: 5px;
+    margin-left: 5px;
+}
+.grand-total {
+    margin: 0 auto;
+    width: 15%;
+    padding: 5px;
+    text-align: center;
+    margin-top: 15px;
+    font-size: larger;
+    font-family: fangsong;
+    background: darkkhaki;
+    color: white;
+}
+
+.place{
+    border-radius: 15px;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    background: #777715;
+    color: white;}
+</style>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>Image</th>
+          <th>Product Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      {% if cart_items %}
+          {% for cart_item in cart_items %}
+              <tr>
+                  <td>{{ forloop.counter }}</td>
+                  <td>
+                    <div >
+                      <img class="image" src="{{ cart_item.item.image.url }}">
+                    </div>
+                  </td>
+                  <td>{{ cart_item.item.itemname }}</td>
+                  <td>{{ cart_item.item.itemdescription }}</td>
+                  <td>${{ cart_item.item.price }}</td>
+                  <td>
+                    <div class="qstyle">
+                      <form method="POST" action="{% url 'decrement_quantity' cart_item.id %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="price" value="{{ cart_item.item.price }}">
+                        <input type="hidden" name="quantity" value="{{ cart_item.quantity }}">
+                        <button class="qty-count qty-count--minus" type="submit" name="action" value="minus">-</button>
+                    </form>
+                    <input class="product-qty" type="number" name="product_qty" min="0" pattern="[0-9]{2}" max="10" value="{{ cart_item.quantity }}">
+                    <form method="POST" action="{% url 'increment_quantity' cart_item.id %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="price" value="{{ cart_item.item.price }}">
+                        <input type="hidden" name="quantity" value="{{ cart_item.quantity }}">
+                        <button class="qty-count qty-count--add" type="submit" name="action" value="add">+</button>
+                    </form>
+                    </div>  
+                  </td>
+                  <td>{{ cart_item.cart_total }}</td>
+                  <td>
+                      <form method="POST" action="{% url 'remove_from_cart' cart_item.id %}">
+                          {% csrf_token %}
+                          <button class="close-mark" type="submit" name="action" value="remove">&#10006;</button>
+                      </form>
+                  </td>
+              </tr>
+          {% endfor %}
+      {% else %}
+          <tr>
+              <td colspan="8">Cart is empty</td>
+          </tr>
+      {% endif %}
+  </tbody>
+</table>
+
+{% if cart_items %}
+    <div class="grand-total">
+        <p>Grand Total: ${{ grand_total }}</p>
+        <a class="place" href="{% url 'checkout_all' %}">Place Order</a>
+    </div>
+
+{% endif %}
+
+{% endblock %}

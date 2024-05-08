@@ -1,0 +1,31 @@
+{% extends 'header.html' %}
+{% load static %}
+
+{% block content %}
+<section class="menu">
+    <div class="menucontainer">
+        <h1>Our Menu</h1>
+        <div class="grid-container">
+            {% for i in menuitems %}
+            <div class="grid-item">
+                <img class="image" src="{{ i.image.url }}">
+                <h3>{{ i.itemname }}</h3>
+                <p>{{ i.itemdescription }}</p>
+                <p>{{ i.price }}</p>
+              
+                    <!-- Add any additional fields you need for the form -->
+                    {% if user.is_active == 1 %}
+                    <a  href="{% url 'checkout' i.id %}" class="bttn" id="addToCartBtn">Buy Now<i class="fa-solid fa-cart-shopping"></i></a>
+                    {% else %}
+                    <a  href="{% url 'signup' %}" class="bttn" id="addToCartBtn">Buy Now<i class="fa-solid fa-cart-shopping"></i></a>
+                    {% endif %}
+                
+            </div>
+            {% endfor %}
+        </div>
+            
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    padding: 0%;
+    margin: 0;
+    width: 100%;
+    height: auto;
+}
+
+.container-fluid{
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 55%;
+    width: 100%;
+    height: 741px;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    height: 62px;
+}
+
+.row h2 {
+    padding: 5px 0px 0px 100px;
+    color: rgb(247 249 118);
+    width: 40%;
+    margin: 10px 0px 0px 100px;
+    font-size: xxx-large;
+}
+.topnav{
+    overflow: hidden;
+    text-align: center;
+    float: right;
+    margin-top: 14px;
+}
+
+.topnav a{
+    color: rgb(255, 255, 255);
+    padding: 0px 25px 0px 25px;
+    text-decoration: none;
+    font-size: 20px;
+    display: inline-block;
+}
+.topnav a:hover{
+    border-bottom: 3px solid rgb(197, 195, 97);
+    padding-bottom: 10px;
+    color: rgb(243, 227, 61);
+    text-decoration: none;
+}
+
+.order-btn{
+    margin-top: 6px;
+    margin-left: 10px;
+    border-radius: 20px;
+    background-color: rgb(247, 255, 27);
+    color: rgb(11, 0, 0);
+    padding: 10px 10px;
+}
+
+.order-btn button{
+    margin-top: 10px;
+}
+
+.column{
+    background: url(/static/img/burger.jpg) 50% 0 no-repeat;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 73%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    height: 673px;
+    width: 98%;
+    font-size: 70px;
+    color: white;
+    font-weight: 500;
+}
+
+.column h1{
+    margin: 150px 0px 0px 10px;
+    width: 576px;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Great Vibes', cursive;
+    font-size: 70px;
+    color: white;
+    font-weight: 500;
+}
+.column p{
+    text-align: justify;
+    margin-left: 20px;
+    width: 530px;
+    padding-top: 10px;
+    font-size: 17px;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.menu {
+    background-color: rgb(0 0 0) !important;
+    height: 673px;
+    width: 100%;
+}
+
+/* footer */
+
+.container-fluid-one{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #787519;
+    color: #fff;
+    font-size: medium;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.col-one{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    height: 260px;
+    padding-top: 30px;
+}
+.col-sm-5{
+    padding: 7px;
+    margin-left: 20px;
+    text-align: center;
+    
+}
+.col-sm-5 h4{
+    font-weight: bold;
+}
+.i{
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.fa-envelope-o{
+    height: 5px;
+    width: -1px;
+    padding: 0px 10px 0px 0px;
+}
+.fa-phone{
+    height: 5px;
+    width: -1px;
+    padding: 0px 10px 0px 0px;
+}
+.fa-address-book{
+    height: 5px;
+    width: -1px;
+    padding: 0px 10px 0px 0px;
+}
+.butt{
+    padding: 5px 5px;
+    background-color: #fdfdff;
+    color: #90a321;
+    width: 180px;
+    margin: 20px 0px 0px 0px;
+}
+.col-two{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 80px;
+    margin-top: 8px;
+}
+.icons-tab{
+    width: 41.66666667%
+}
+
+.icons{
+    margin: 0px 0px 0px 33px;
+    padding: 0PX 10PX 0PX 0PX;
+    color: rgb(213, 210, 39);
+    text-decoration: none;
+}
+.nav{
+    width: 41.66666667%;
+    text-align: center;
+}
+.nav a{
+    padding: 5px 5px 5px 5px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+
+}
+.nav a:hover{
+    border-bottom: 3px solid rgb(197, 195, 97);
+    padding-bottom: 30px;
+    text-decoration: none;
+    color: rgb(225, 217, 58);
+}

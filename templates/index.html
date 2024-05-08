@@ -1,0 +1,64 @@
+{% extends 'header.html' %}
+{% load static %}
+
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="column">
+            <h1>Fast Food Restaurant</h1>
+            <p>Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="bur">
+            <img src="../static/img/bur.jpg">
+        </div>
+        <div class="text">
+            <h1>We Are Feane</h1>
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All</p>
+        </div>
+    </div>
+    <section class="menu">
+        <div class="menucontainer">
+            <h1>Our Menu</h1>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <img class="image" src="../static/img/chicken burger.jpg">
+                    <form id="addToCartForm" action="{% url 'cart' %}" method="post">
+                        {% csrf_token %}
+                        <!-- Add any additional fields you need for the form -->
+                        <button class="bttn" id="addToCartBtn">Add to Cart<i class="fa-solid fa-cart-shopping"></i></button>
+                    </form>
+                    <h3>Chicken Burger<span> $100 </span></h3>
+                </div>
+                <div class="grid-item">
+                    <img class="image" src="../static/img/pizza.jpg">
+                    <form id="addToCartForm" action="{% url 'cart' %}" method="post">
+                        {% csrf_token %}
+                        <!-- Add any additional fields you need for the form -->
+                        <button class="bttn" id="addToCartBtn">Add to Cart<i class="fa-solid fa-cart-shopping"></i></button>
+                    </form>
+                    <h3>Chicken Pizza<span> $200 </span></h3>
+                </div>
+                <div class="grid-item">
+                    <img class="image" src="../static/img/beef burger.jpg">
+                    <form id="addToCartForm" action="{% url 'cart' %}" method="post">
+                        {% csrf_token %}
+                        <!-- Add any additional fields you need for the form -->
+                        <button class="bttn" id="addToCartBtn">Add to Cart<i class="fa-solid fa-cart-shopping"></i></button>
+                    </form>
+                    <h3>Beef Burger<span> $150 </span></h3>
+                </div>
+            </div>
+            <a href="{% url 'menu' %}">
+                <div class="menubtn">
+                    <button >Show More</button>             
+                </div>
+            </a>
+        </div>
+
+    </section>
+
+
+{% endblock %}

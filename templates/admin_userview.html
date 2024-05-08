@@ -1,0 +1,42 @@
+{% extends 'custom_admin.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<style>
+    .col-sm-3 a{
+        margin: 0;
+    }
+</style>
+
+<div class="col-sm-9">
+    <h1>
+        User Details
+    </h1>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>User Id</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in data %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ i.name }}</td>
+                    <th>{{ i.phone_number }}</th>
+                    <td>{{ i.email }}</td>
+                    <td>{{ i.id }}</td>
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

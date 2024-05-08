@@ -1,0 +1,32 @@
+{% extends 'header.html' %}
+{% load static %}
+
+{% block content %}
+<div class="contact-container">
+    <div class="two">
+        <div class="containerform">
+            <div class="form">
+                <form>
+                    <fieldset>
+                        <div class="rowform">
+                            <h1>Contact Us</h1>
+                            <input type="text" id="name" placeholder="Name">
+            
+                            <input type="text" id="name" placeholder="Email">
+        
+                            <textarea name="" id="" cols="30" rows="10" placeholder="Message"></textarea>
+                            <div class="col-sm-6">
+                                <button type="button" class="bttn">SEND</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <div class="map">
+            <iframe class="map-dimension" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3895.1313710519335!2d74.9928642750686!3d12.507450387766891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba483d25c8a7d37%3A0x37a30287fb9e45!2sStack%20Technology%20Centre!5e0!3m2!1sen!2sin!4v1709717776427!5m2!1sen!2sin"  width="400" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

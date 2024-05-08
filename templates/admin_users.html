@@ -1,0 +1,42 @@
+{% extends 'custom_admin.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<style>
+    .col-sm-3 a{
+        margin: 0;
+    }
+</style>
+
+<div class="col-sm-9">
+    <br><br>
+    <h1>Users</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Username</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in data %}
+                <tr>
+                    <td>{{ i.id }}</td>
+                    <td>{{ i.email }}</td>
+                    <td>
+                        <div>
+                            <a href="{% url 'user_view' %}">
+                                View
+                            </a>
+                        </div>
+
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

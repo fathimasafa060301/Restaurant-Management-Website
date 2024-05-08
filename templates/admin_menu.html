@@ -1,0 +1,86 @@
+{% extends 'custom_admin.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<style>
+    .add-more {
+    color: white;
+    border-radius: 10px;
+    background: #050578;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 27px;  
+}
+
+    .col-sm-10 h1{
+        color: #323f83;
+        margin: 0;
+        padding: 5px 0px 17px;
+        text-align: left;
+    }
+    .image{
+        border-radius: 40px;
+        width: 65px;
+        height: 55px;
+        margin: 0 auto;
+    }
+
+</style>
+<div class="col-sm-9">
+    <br><br>
+    <div class="row">
+        <div class="col-sm-10">
+            <h1>Our Menu</h1>
+        </div>
+        <div class="col-sm-2">
+            <a href="{% url 'add_item' %}" class="add-more" >ADD</a>
+        </div>
+        
+    </div> 
+    <table>
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in menus %}
+                <tr>
+                    <td><img class="image" src="{{ i.image.url }}"></td>
+                    <td>{{ i.itemname }}</td>
+                    <td>{{ i.price }}</td>
+                    <td>{{ i.itemdescription }}</td>
+                    <td>{{ i.category }}</td>
+                    <td style="width: 150px;">
+
+                      <div class="col-sm-6">
+                        <a href="{% url 'edit_item' i.id %}">
+                            Edit
+                        </a>
+                      </div>
+
+                      <div class="col-sm-6">
+                        <a href="{% url 'delete_menu' i.id %}">
+                            Delete
+                        </a>
+                      </div> 
+
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
+
+
+
+ 

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feane Restaurant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+
+<!--    <link rel="stylesheet" href="CSS/header4.css">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="{% static 'css/sty.css' %}">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <script src="{% static 'js/menuitems.js' %}"></script>
+
+
+
+
+    <style>
+        .header{
+            height: 150px;
+            vertical-align: middle;
+            padding-top: 3%;
+        }
+        .row h2 {
+            padding: 5px 0px 0px 100px;
+            color: rgb(247 249 118);
+            width: 40%;
+            margin: 10px 0px 0px 100px;
+            font-size: xxx-large;
+        }
+        .column{
+            background: url(/static/img/burger.jpg) 50% 0 no-repeat;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 50% 73%;
+            display: flex;
+            flex-direction: column;
+            /* margin-top: 10px; */
+            margin: 0 auto;
+            /* background-color: rgb(221, 210, 196); */
+            height: 673px;
+            width: 98%;
+            font-size: 70px;
+            color: white;
+            font-weight: 500;
+        }
+        .order-btn{
+            margin-top: 6px;
+            margin-left: 10px;
+            border-radius: 20px;
+            background-color: rgb(247, 255, 27);
+            color: rgb(11, 0, 0);
+            padding: 10px 10px;
+        }
+
+        .order-btn button{
+            margin-top: 10px;
+        }
+        
+        /* menu */
+        .menu {
+            background-color: #041420;
+            width: 100%;
+            height: auto;
+        }
+        .menucontainer {
+            height: auto;
+            background-color: rgb(0, 0, 0);
+            width: 96%;
+            margin: 0 auto;
+        }
+        .menucontainer h1{
+            margin-top: 0px;
+            padding: 10px 0px 0px 0px;
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-family: 'Great Vibes', cursive;
+            font-size: 60px;
+            font-weight: 500;
+            color: white;
+        }
+
+        .grid-container {
+            width: 1160px;
+            height: auto;
+            margin: 0 auto;
+            display: grid;
+            column-gap: 0px;
+            row-gap: 10px;
+            grid-template-columns: auto auto auto;
+            padding: 10px 10px;
+        }
+
+        .grid-item {
+            display: flex;
+            flex-direction: column;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            grid-row-gap: 2px;
+            font-size: 15px;
+            text-align: center;
+        }
+
+        .bttn{
+            width: 283px;
+            margin: 0 auto;
+            margin-top: 10px;
+            border-radius: 20px;
+            background-color: rgb(149 152 48);
+            color: rgb(255, 255, 255);
+            padding: 3px 0px;
+        }
+
+        .image{
+            width: 211px;
+            height: 160px;
+            margin: 0 auto;
+        }
+
+        .cart-icon{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0px;
+        }
+        .menubtn{
+            width: max-content;
+            /* justify-content: left; */
+            margin: 0 auto;
+            margin-bottom: 8px;
+            margin-top: 6px;
+        }
+        .menubtn button {
+            border-style: none;
+            text-align: center;
+            border-radius: 20px;
+            color: white;
+            background-color: #93932f;
+            padding: 10px 5px;
+        }
+        .menubutton{
+            margin: 0 auto;
+        }
+
+        /* footer */
+        footer{
+            margin-top: auto;
+            
+        }
+        
+        .one{
+            /* margin-top: auto; */
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            background-color: #787519;
+            color: #fff;
+            font-size: medium;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        
+        .col-one{
+            display: flex;
+            flex-direction: row;
+            width: 90%;
+            height: 260px;
+            padding-top: 30px;
+        }
+        
+        .col-sm-4{
+            padding: 7px;
+            margin-left: 20px;
+            text-align: center;
+            
+        }
+        .col-sm-4 h4{
+            font-weight: bold;
+            font-size: 36px;
+        }
+        .i{
+            margin: 0 auto; 
+            width: 180px;
+            /* align-items: center; */
+            margin: 25px 0px 0px 148px;
+            display: flex;
+            flex-direction: row;
+            /* font-size: medium; */
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .fa-envelope-o{
+            width: 5px;
+            height: 5px;
+            padding: 0px 10px 0px 0px;
+        }
+        .fa-phone{
+            width: 5px;
+
+            height: 5px;
+            padding: 0px 10px 0px 0px;
+        }
+        .fa-map-marker{
+            width: 5px;
+            height: 5px;
+            padding: 0px 10px 0px 0px;
+        }
+        .para{
+            font-size: 17px;
+            margin: -5px 10px;
+            text-align: center;
+        }
+
+        .col-sm-2{
+            width: 27.666667%;
+            TEXT-ALIGN: center;
+        }
+        .col-sm-2 h4{
+            font-size: 36px;
+        }
+
+        .pa{
+            margin: 24px 0 24px;
+        }
+        .butt{
+            padding: 5px 5px;
+            background-color: #fdfdff;
+            color: #90a321;
+            width: 180px;
+            margin: 20px 0px 0px 0px;
+        }
+        .col-two{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 80px;
+            margin-top: 8px;
+        }
+        .icons-tab{
+            margin: 0 auto;
+            /* margin-top: 21px; */
+            width: 68.666667%;
+        }
+
+        .icons{
+            margin: 0px 0px 0px 33px;
+            padding: 0PX 10PX 0PX 0PX;
+            color: rgb(213, 210, 39);
+            text-decoration: none;
+        }
+        .nav{
+            width: 41.66666667%;
+        }
+        .nav a{
+            padding: 5px 5px 5px 5px;
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+
+        }
+        .nav a:hover{
+            border-bottom: 3px solid rgb(197, 195, 97);
+            padding-bottom: 30px;
+            text-decoration: none;
+            color: rgb(225, 217, 58);
+        }
+        .cart{
+            margin: 8px 0px 0px 16px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* contact */
+
+        .containerform{
+            margin: 0 auto;
+            margin-top: 100px;
+            height: 400px;
+            /* margin: 36px 0px 0px 10px; */
+            background-color: #77721e;
+        }
+
+        .two{
+            display: flex;
+            flex-direction: row;
+            /* background: url(/static/img/hambur.jpg); */
+            background-color: rgb(22, 19, 25);
+            width: 80%;
+            margin: 0 auto;
+            height: inherit;
+
+        }
+        
+        .col h5{
+            font-weight: 100;
+            font-size: 30px;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        /* signup */
+
+        .login{
+            width: 50%;
+            height: 450px;
+            margin-top: 110px;
+            text-align: center;
+            border-style: groove;
+            /* left: 403px; */
+            background-color: #0d0e0f;
+
+        }
+        .signup{
+            width: 50%;
+            height: 450px;
+            margin-top: 110px;
+            text-align: center;
+            border-style: groove;
+            /* left: 403px; */
+            background-color: #0e0f0f;
+
+        }
+
+        .col{
+            display: flex;
+            flex-direction: column;
+            /* background-color: aqua; */
+            background-color: #000000;
+            width: 100%;
+            color: white;
+            /* height: inherit; */
+        }
+        .col-sm-10 {
+            width: 50px;
+            padding-bottom: 10px;
+            /* margin: 0 auto; */
+        }
+        .col-sm-10 input{
+            padding: 20px;
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- header -->
+    <div class="container-fluid header justify-content-md-center">
+        <div class="row">
+            <h2>LA MAISON</h2>
+            <div class="topnav">
+                <a href="{% url 'index' %}">HOME</a>
+                <a href="{% url 'about' %}">ABOUT</a>
+                <a href="{% url 'menu' %}" href="#menu">MENU</a>
+                <a href="{% url 'contact' %}">CONTACT</a>
+            </div>
+        
+
+            {% if user.is_active == 1 %}
+                <a href="{% url 'cart' %}" class="cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+            {% endif %}
+
+            {% if user.is_active == 0 %}
+            <a href="{% url 'signup_page' %}" class="cart">
+                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+            </a>
+            {% endif %}
+
+            {% if user.is_active == 1 %} 
+
+            <div class="dropdown">
+                <!-- <a href="{% url 'logout' %}" class="icon-class">  -->
+                <i class="icon-off"></i>
+                <!-- </a> -->
+                <div class="dropdown-content">
+                  <a href="{% url 'user_profile' %}">Profile</a>
+                  <a href="{% url 'logout' %}">Logout</a>
+                </div>
+            </div>
+
+            {% endif %} 
+            
+        </div>
+    </div>
+
+    <!-- all pages here -->
+
+
+    {% block content %}
+
+
+    {% endblock %}
+
+
+
+
+
+
+    {% include 'footer.html' %} 
+
+</body>
+
+</html>

@@ -1,0 +1,201 @@
+{% extends 'header.html' %}
+{% load static %}
+
+
+{% block content %}
+  <style>
+
+    .userprofile-container {
+        height: 657px;
+        color: white;
+        max-width: 557px;
+        margin: 20px auto;
+        background-color: #5b5916;;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #faf7f7;
+      text-align: center;
+    }
+    .profile-info {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 20px;
+        font-size: larger;
+        padding: 1px 30px;
+    }
+
+    .det{
+        width: 50%;
+    /* text-align: center; */
+    }
+
+    .ico{
+        margin: 0 auto;
+        padding: 6px
+    }
+
+    .fa-user{
+        padding: 0px;
+        font-size: 80px;
+        margin: 0 auto;
+        margin-top: 5px;
+    }
+
+    .profile-info label {
+      font-weight: bold;
+    }
+    .profile-info p {
+      margin: 5px 0;
+    }
+
+    .hidden-content {
+      display: none;
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+    }
+
+    .hidden-content a {
+        font-size: large;
+    }
+
+    .hidden-content a:hover {
+        color: #5b6022;
+    }
+    .button {
+        background-color: #ffffff;
+        color: #464d16;
+        font-size: large;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color:#a3b04e;
+      color: #ffffff;
+    }
+
+    .mngaddress{
+        padding: 10px 10px;
+        text-decoration: none;
+        color: #000;
+    }
+
+    .acctdetails{
+        padding: 10px 25px;
+    }
+
+    /* faqs */
+
+    .faq_help {
+      /* max-width: 800px;
+      margin: 20px auto; */
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .section {
+      margin-bottom: 20px;
+    }
+    .question {
+      font-weight: bold;
+      color: #007bff;
+      cursor: pointer;
+    }
+    .answer {
+      display: none;
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border-left: 3px solid #007bff;
+    }
+    .terms_cond{
+        padding: 10px;
+    }
+
+    .terms{
+        margin-left: 14px;
+        width: 218px;
+        background-color: #ffffff;
+        color: #464d16;
+        font-size: large;
+        padding: 10px 2px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .terms:hover {
+      background-color:#a3b04e;
+    }
+
+    .term{
+        padding: 10px 8px;
+        text-decoration: none;
+        color: #546223;
+    }
+    .term:hover {
+      color: #ffffff;
+    }
+
+  </style>
+
+  <div class="userprofile-container">
+    <h1>Profile</h1>
+    <div class="profile-info">
+        <div class="det">
+            <H3>Fathima Safa K</H3>
+            <H3>+91 1234567890</H3>
+        </div>
+        <div class="ico">
+            <i class="fa-solid fa-user"></i>
+        </div>
+    </div>
+    <hr>
+    <div class="acctdetails">
+        <button class="button" onclick="toggleContent()">MY ACCOUNT</button>
+        <div id="accountDetails" class="hidden-content">
+            <a href="{% url 'manage_address' %}" class="mngaddress">Manage Address</a>
+            <br>
+            <br>
+            <a href="#" class="mngaddress">My Orders</a>
+          <!-- Add more account details as needed -->
+        </div>
+    </div>
+
+    <hr>
+        
+    <!-- faqs&help -->
+    <div class="terms_cond">
+        <div class="terms">
+            <a href="{% url 'terms' %}" class="term" >TERMS & CONDITIONS</a>
+        </div>
+    </div>
+
+    <hr>
+    <div class="terms_cond">
+        <div class="terms">
+            <a href="{% url 'user_contact' %}" class="term" >CONTACT US</a>
+        </div>
+    </div>
+   <hr>
+</div>
+
+  <script>
+    function toggleContent() {
+      var content = document.getElementById('accountDetails');
+      content.style.display = (content.style.display === 'block') ? 'none' : 'block';
+    }
+  </script>
+
+{% endblock %}
+

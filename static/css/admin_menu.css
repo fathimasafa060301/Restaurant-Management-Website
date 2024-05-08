@@ -1,0 +1,60 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* Style table rows */
+tr {
+  border-bottom: 1px solid #ddd;
+}
+
+/* Style table cells */
+td, th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.edit-btn{
+  width: 45%;
+  background-color: black;
+  color: white;
+}
+/* .grid-container {
+    width: 1000px;
+    height: auto;
+    display: grid;
+    column-gap: 0px;
+    row-gap: 10px;
+    grid-template-columns: auto auto auto;
+    padding: 10px 10px;
+  }
+
+  .grid-item {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    grid-row-gap: 2px;
+    font-size: 15px;
+    text-align: center;
+  } */
+
+  .image{
+    width: 65px;
+    height: 55px;
+    margin: 0 auto;
+  }
+ 
+  .gridbuttons{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .gridbtn{
+    width: 50%;
+    background-color: black;
+    color: white;
+  }
+ 

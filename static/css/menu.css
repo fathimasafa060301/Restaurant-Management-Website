@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.menu {
+    background-color: #041420;
+    width: 100%;
+   
+}
+.menucontainer {
+    background-color: rgb(0, 0, 0);
+    width: 96%;
+    margin: 0 auto;
+}
+
+.menucontainer h1{
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Great Vibes', cursive;
+    font-size: 60px;
+    font-weight: 500;
+    color: white;
+}
+
+.grid-container {
+	width: 1160px;
+	height: auto;
+	margin: 0 auto;
+	display: grid;
+	column-gap: 0px;
+	row-gap: 10px;
+	grid-template-columns: auto auto auto;
+	padding: 10px 10px;
+}
+
+.grid-item {
+	display: flex;
+	flex-direction: column;
+	background-color: rgba(255, 255, 255, 0.8);
+	border: 1px solid rgba(0, 0, 0, 0.8);
+	padding: 20px;
+	grid-row-gap: 2px;
+	font-size: 15px;
+	text-align: center;
+}
+
+.image{
+	width: 211px;
+	height: 160px;
+	margin: 0 auto;
+}
+
+.bttn{
+    margin-top: 10px;
+    margin-left: 2px;
+    border-radius: 20px;
+    background-color: rgb(149 152 48);
+    color: rgb(11, 0, 0);
+    padding: 10px 10px;
+}
+
+.cart-icon{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    transform: translateY(-50%);
+    right: 0px;
+}
+
+.categories{
+    width: 200px;
+    margin: 0 auto;
+}
+
+.categorybtn{
+    padding: 10px 10px;
+    background-color: #93932f;
+    color: white;
+}
+
+.menubtn{
+	width: max-content;
+    /* justify-content: left; */
+    margin: 0 auto;
+    margin-bottom: 8px;
+    margin-top: 6px;
+}
+
+.menubtn button {
+    border-style: none;
+    text-align: center;
+    border-radius: 20px;
+    color: white;
+    background-color: #93932f;
+    padding: 10px 5px;
+}
+
+/* body {
+	background: #e2eaef;
+	font-family: "Open Sans", sans-serif;
+}
+.col-md-12 h2{
+    color: #000;
+    margin: 0 auto;
+    top: 5px;
+}
+.carousel {
+	margin: 50px auto;
+	padding: 0 70px;
+}
+.carousel .item {
+	color: #747d89;
+	min-height: 325px;
+	text-align: center;
+	overflow: hidden;
+}
+.carousel .thumb-wrapper {
+	padding: 25px 15px;
+	background: #fff;
+	border-radius: 6px;
+	text-align: center;
+	position: relative;
+	box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+}
+.carousel .item .img-box {
+	height: 120px;
+	margin-bottom: 20px;
+	width: 100%;
+	position: relative;
+}
+.carousel .item img {	
+	max-width: 100%;
+	max-height: 100%;
+	display: inline-block;
+	position: absolute;
+	bottom: 0;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+}
+.carousel .item h4 {
+	font-size: 18px;
+}
+.carousel .item h4, .carousel .item p, .carousel .item ul {
+	margin-bottom: 5px;
+}
+.carousel .thumb-content .btn {
+	color: #7ac400;
+	font-size: 11px;
+	text-transform: uppercase;
+	font-weight: bold;
+	background: none;
+	border: 1px solid #7ac400;
+	padding: 6px 14px;
+	margin-top: 5px;
+	line-height: 16px;
+	border-radius: 20px;
+}
+.carousel .thumb-content .btn:hover, .carousel .thumb-content .btn:focus {
+	color: #fff;
+	background: #7ac400;
+	box-shadow: none;
+}
+.carousel .thumb-content .btn i {
+	font-size: 14px;
+	font-weight: bold;
+	margin-left: 5px;
+}
+.carousel .item-price {
+	font-size: 13px;
+	padding: 2px 0;
+}
+.carousel .item-price strike {
+	opacity: 0.7;
+	margin-right: 5px;
+}
+.carousel-control-prev, .carousel-control-next {
+	height: 44px;
+	width: 40px;
+	background: #7ac400;	
+	margin: auto 0;
+	border-radius: 4px;
+	opacity: 0.8;
+}
+.carousel-control-prev:hover, .carousel-control-next:hover {
+	background: #78bf00;
+	opacity: 1;
+}
+.carousel-control-prev i, .carousel-control-next i {
+	font-size: 36px;
+	position: absolute;
+	top: 50%;
+	display: inline-block;
+	margin: -19px 0 0 0;
+	z-index: 5;
+	left: 0;
+	right: 0;
+	color: #fff;
+	text-shadow: none;
+	font-weight: bold;
+}
+.carousel-control-prev i {
+	margin-left: -2px;
+}
+.carousel-control-next i {
+	margin-right: -4px;
+}		
+.carousel-indicators {
+	bottom: -50px;
+}
+.carousel-indicators li, .carousel-indicators li.active {
+	width: 10px;
+	height: 10px;
+	margin: 4px;
+	border-radius: 50%;
+	border: none;
+}
+.carousel-indicators li {	
+	background: rgba(0, 0, 0, 0.2);
+}
+.carousel-indicators li.active {	
+	background: rgba(0, 0, 0, 0.6);
+}
+.carousel .wish-icon {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	z-index: 99;
+	cursor: pointer;
+	font-size: 16px;
+	color: #abb0b8;
+}
+.carousel .wish-icon .fa-heart {
+	color: #ff6161;
+}
+.star-rating li {
+	padding: 0;
+}
+.star-rating i {
+	font-size: 14px;
+	color: #ffc000;
+} */

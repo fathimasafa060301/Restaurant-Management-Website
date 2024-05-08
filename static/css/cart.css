@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+}
+
+table{
+    width:80%;
+    border-collapse: collapse;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 27px;
+}
+
+th{
+    background-color: #7b8332;
+    padding: 22px;
+    border-bottom: 3px solid #ddd;
+    color: #fffefe;
+    font-weight: 300;
+    padding: 30px;
+}
+td{
+    border-bottom: 3px solid #ddd;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+}
+p1{
+    padding-right: 78px;
+    color: grey;
+    font-weight: 200;
+    font-size: small;
+}
+input[type=checkbox] {
+    accent-color: rgb(149, 203, 149);
+    color: #ddd;
+    cursor: pointer;
+}
+
+input[type="number"]{
+    text-align: center;
+    width: 15%;
+    height: 30px;
+}
+.item-img{
+    margin:0 auto;
+    width: 65px;
+    height: 60px;
+    border-radius: 50%;
+    border-style: dashed;
+    border-color: rgb(149, 203, 149);
+}
+
+.item-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.close-mark{
+    color: red;
+    cursor: pointer;
+}

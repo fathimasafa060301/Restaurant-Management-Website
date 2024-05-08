@@ -1,0 +1,75 @@
+{% extends 'header.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    .ship {
+          max-width: 800px;
+          margin: 20px auto;
+          background-color: #fff;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(175, 54, 54, 0.1);
+          padding: 30px;
+          display: flex;
+          flex-direction: row;
+      }
+  
+      .shipping-details{
+        margin-top: 3px;
+        text-align: center;
+        padding: 5px 5px;
+        width: 100%;
+        margin-bottom: 6px;
+        background-color: #f9f9f9;
+        border-radius: 12px;
+      }
+  
+      input[type="text"]  {
+        width: 58%;
+        padding: 24px 7px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        
+      }
+  
+      
+      .ship-detail {
+          width: 50%;
+          margin: 0 auto;
+      }
+  
+      
+      .changebtn {
+        margin-top: 15px;
+      }
+  
+      .address-btn{
+        padding: 5px 5px;
+        border-radius: 10px;
+        color: white;
+        background-color: black;
+        cursor: pointer;
+      }
+  </style>
+
+
+<div class="ship">
+    <div class="shipping-details">
+        {% if addres %}  
+        <form class="ship-detail" method="POST" action="{% url 'update_address' %}">
+            {% csrf_token %}
+            <h3>Update Your Address Here</h3>
+            <input type="text" id="city" name="city" placeholder="city" required value="{{ addres.city }}"><br>
+            <input type="text" id="zipcode" name="zipcode" placeholder="zipcode" required value="{{ addres.zip_code }}"><br>
+            <input type="text" id="address" name="address" placeholder="address" required value="{{ addres.address }}"><br>
+            <div class="changebtn">
+              <button type="submit" class="address-btn">Update Address</button>
+            </div>
+        </form>
+        {% else %}
+        <p>No Address found to edit</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
